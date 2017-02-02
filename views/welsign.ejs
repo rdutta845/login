@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+    <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+  	<style type="text/css">
+  		#para{
+
+            font-size : 30px;
+            font-color : 'blue';
+        }
+        #main{
+        	background-color: #8888ff;
+        }
+  	</style>
+  </head>
+  <body>
+    <h1>Welcome to our site</h1>
+    <p>Your are successfully sighning up <%=name%></p>
+    <br>
+    <button type="button" id="log" class ="btn btn-success">Login</button>
+
+    <script type="text/javascript">
+      
+
+    $("#log").click(function (){
+
+      window.location.href = '/login';
+    });
+    </script>
+
+     </body>
+</html>

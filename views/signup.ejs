@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+    <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+  	<style type="text/css">
+  		#para{
+
+            font-size : 30px;
+            font-color : 'blue';
+        }
+        #main{
+        	background-color: #8888ff;
+        }
+  	</style>
+  </head>
+  <body>
+    <h1>SIGNUP</h1>
+    <input type="text" id='first' placeholder="first" class = 'form-control'><br>
+    <input type="text" id='last' placeholder="last" class = 'form-control'><br>
+    <input type= "email" id='mail' placeholder="email" class = 'form-control'><br>
+    <input type="password" id='pass' placeholder="password" class = 'form-control'><br>
+    <button type="button" id = 'sign' class = 'btn btn-lg btn-danger'>Sign Up</button>
+
+      <script type="text/javascript">
+  	
+  	$("#sign").click(function (){
+        
+        console.log("inside the button");
+        
+        var first = $("#first").val();
+        var last = $("#last").val();
+        var email = $("#mail").val();
+
+        var pass = $("#pass").val();
+
+        var data = {
+        		email : email,
+        		password : pass,
+	        	name:{
+	        		first : first,
+	        		last : last
+	        	}
+        }
+        var name = data.name.first+' '+data.name.last;
+
+        console.log(email);
+        console.log(pass);
+        console.log(first);
+        console.log(last);
+       
+        $.ajax({
+
+          url : '/signup',
+          type: 'post',
+          data : data,
+          success : function(result){ 
+
+            console.log(result);
+            //window.location.reload();
+            window.location.href='/welsign/'+name;
+            
+            }               
+        });   
+      });
+  </script>
+
+
+  </body>
+</html>

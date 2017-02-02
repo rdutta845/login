@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+    <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+  	<style type="text/css">
+  		#para{
+
+            font-size : 30px;
+            font-color : 'blue';
+        }
+        #main{
+        	background-color: #8888ff;
+        }
+  	</style>
+  </head>
+  <body>
+
+ 
+
+    <h1>Login</h1>
+    
+    <input type="text" id='mail' placeholder="mail" class = 'form-control'><br>
+    <input type="password" id='pass' placeholder="password" class = 'form-control'><br>
+    <button type="button" id = 'login' class = 'btn btn-lg btn-danger'>Login</button>
+
+      <script type="text/javascript">
+  	
+  	$("#login").click(function (){
+        
+        console.log("inside the button");
+        
+        
+        var mail = $("#mail").val();
+
+        var pass = $("#pass").val();
+
+        console.log(mail);
+        console.log(pass);
+        
+       
+        $.ajax({
+
+          url : '/login',
+          type: 'post',
+          data : {
+          		
+          		mail : mail,
+          		pass : pass
+          },
+          success : function(result){ 
+
+            
+            //window.location.reload();
+            if(!result.error){
+            window.location.href = '/logout';
+              }else{
+                alert(result.result);
+                console.log(result);
+              }
+
+            }               
+        });   
+      });
+  </script>
+
+
+  </body>
+</html>
