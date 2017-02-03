@@ -21,13 +21,13 @@ module.exports ={
       	  }else{
 
       	  	 user.comparePassword(pass, function(err,isMatch){
-         	if(isMatch && !err){
+         			if(isMatch && !err){
          		
          		
          		req.session.name = user.name.full;
          		req.session.email = user.email;
-         		sesActive=true;
-         		//req.session.logintime = moment();
+         		
+         		
          		return res.send("Successfully login");
 
          	    //return  res.json('welcome',{error : false, name:req.session. name});

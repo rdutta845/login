@@ -3,8 +3,13 @@
 <html>
    <head>
     <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
-    
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+
+    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <link rel = "stylesheet" href = "/css/pnotify.custom.min.css" >
+    <script type="text/javascript" src="/pnotify.custom.min.js"></script>
+    <link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
   	<style type="text/css">
   		#para{
 
@@ -16,12 +21,17 @@
         }
   	</style>
   </head>
-  <body>
-    <h1>Welcome to our site</h1>
-    <p>Your are successfully sighning up <%=name%></p>
-    <br>
-    <button type="button" id="log" class ="btn btn-success">Login</button>
+  <body style="background-color: grey"><br><br><br>
+  <div class="row">
+  <div class="col-md-4 col-sm-4"></div>
+  <div class="col-md-5 col-sm-5 well well-lg">
 
+    <h1>Welcome to our site</h1>
+    <p>Your are successfully sighning up <b><%=name%></b></p>
+    <br>
+    <center><button type="button" id="log" class ="btn btn-success">Login</button></center>
+  </div>
+  </div>
     <script type="text/javascript">
       
 

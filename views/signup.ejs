@@ -3,8 +3,14 @@
 <html>
    <head>
     <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     
 		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <script type="text/javascript" src="/pnotify.custom.min.js"></script>
+		<link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
+   
   	<style type="text/css">
   		#para{
 
@@ -16,14 +22,33 @@
         }
   	</style>
   </head>
-  <body>
-    <h1>SIGNUP</h1>
-    <input type="text" id='first' placeholder="first" class = 'form-control'><br>
-    <input type="text" id='last' placeholder="last" class = 'form-control'><br>
-    <input type= "email" id='mail' placeholder="email" class = 'form-control'><br>
-    <input type="password" id='pass' placeholder="password" class = 'form-control'><br>
+  <body style="background-color: grey">
+  	<br><br><br>
+  <div class = "row">
+  <div class = "col-md-4"></div>
+  	<div class= "well well-lg col-md-5">
+    <center><h1><i class="glyphicon glyphicon-user pull-left"></i>SignUp Page<i class="glyphicon glyphicon-pencil pull-right"></i></h1></center><br><br><br>
+    <div class="input-group">
+    <div class="input-group-addon">
+    <i class="fa fa-user-circle-o"></i></div>
+    <input type="text" id='first' placeholder="FIRST NAME" class = 'form-control'></div><br>
+    <div class="input-group">
+    <div class="input-group-addon">
+    <i class="fa fa-user-circle"></i></div>
+    <input type="text" id='last' placeholder="LAST NAME" class = 'form-control'></div><br>
+    <div class="input-group">
+    <div class="input-group-addon">
+    <i class="fa fa-address-book" aria-hidden="true"></i></div>
+    <input type= "email" id='mail' placeholder="EMAIL" class = 'form-control'></div><br>
+    <div class="input-group">
+    <div class="input-group-addon">
+    <i class="fa fa-lock" aria-hidden="true"></i></div>
+    <input type="password" id='pass' placeholder="PASSWORD" class = 'form-control'></div><br><br>	
+    
     <button type="button" id = 'sign' class = 'btn btn-lg btn-danger'>Sign Up</button>
-
+    <button type = "button" id = "login" class = "btn btn-lg btn-success pull-right">Login</button>
+  </div>
+  </div>
       <script type="text/javascript">
   	
   	$("#sign").click(function (){
@@ -50,6 +75,7 @@
         console.log(pass);
         console.log(first);
         console.log(last);
+        if(email && pass && first && last){
        
         $.ajax({
 
@@ -61,10 +87,23 @@
             console.log(result);
             //window.location.reload();
             window.location.href='/welsign/'+name;
+          	   }
+              });
+
+          }else{
             
-            }               
-        });   
+            new PNotify({
+              tittle :"Regular Notice",
+              type : "error",
+              text : "Fill Up The Sign Up Page"
+
+              })
+          }   
       });
+  	$("#login").click(function(e){
+  		e.preventDefault();
+  		window.location.href = "/login";
+  	})
   </script>
 
 

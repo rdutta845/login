@@ -5,6 +5,7 @@ var signup = require('./signup');
 var login = require('./login');
 var logout = require('./logout');
 var welsign = require('./welsign');
+//var error = require('./index');
 /* GET home page. */
 
 var checkSes=function(req,res,next){
@@ -13,7 +14,7 @@ if(req.session.email){
 	next();
 }else{
 	console.log('login first');
-	return res.render('login');
+	return res.redirect('/login');
 	
 	}
 }
@@ -44,5 +45,6 @@ router.get('/logout',checkSes,logout.get);
 router.post('/logout',checkSes,logout.post);
 
 router.get('/welsign/:name',welsign.get);
+//router.get('/welsign',welsign.any);
 
 module.exports = router;

@@ -3,8 +3,13 @@
 <html>
    <head>
     <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
-    
-		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>    
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <link rel = "stylesheet" href = "/css/pnotify.custom  .min.css" >
+    <script type="text/javascript" src="/pnotify.custom.min.js"></script>
+    <link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
+
   	<style type="text/css">
   		#para{
 
@@ -16,20 +21,27 @@
         }
   	</style>
   </head>
-  <body>
+  <body style="background-color: grey">
+  <br><br><br>
+  <div class = "row">
+  <div class = "col-md-3"></div>
+  <div class = "col-md-6 well well-lg">
     <h1>Welcome to our site</h1>
 
   
     Your Name : <%=result.name%><br>
     Your Email : <%=result.email%> <br> 
-    <button type="button" id= 'sub-btn' class='btn btn-success'>Logout</button> 
-
+    <center><button type="button" id= 'sub-btn' class='btn btn-success'>Logout</button></center> 
+  </div>
+  </div>
       <script type="text/javascript">
   	
   	$("#sub-btn").click(function (){
         
         var data='logout';
-        alert(data);
+        //alert(data);
+      ;
+
         $.ajax({
 
           url : '/logout',
@@ -37,9 +49,21 @@
           data : data,
           success : function(result){ 
 
-            
+            if(result.error){
+               new PNotify({
+                  title : "Regular Notice",
+                  type : "error",
+                  text : data
+              })
+             }else{
             //window.location.reload();
             window.location.href = '/login';
+            new PNotify({
+                  title : "Regular Notice",
+                  type : "success",
+                  text : "sucessfully loout"
+              })
+              }
             
             }               
         });   
