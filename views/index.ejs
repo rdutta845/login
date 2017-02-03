@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+    <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>    
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+    <link rel = "stylesheet" href = "/css/pnotify.custom  .min.css" >
+    <script type="text/javascript" src="/pnotify.custom.min.js"></script>
+    <link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
+
+  	<style type="text/css">
+  		#para{
+
+            font-size : 30px;
+            font-color : 'blue';
+        }
+        #main{
+        	background-color: #8888ff;
+        }
+  	</style>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to our website</p><br><br><br>
+    <button type="button" id="login" class="btn btn-lg btn-danger pull-left">Login</button>
+    <button type="button" id="sign" class="btn btn-lg bt-success pull-right">Sign Up</button>
+    <script type="text/javascript">
+    	$("#login").click(function(e){
+    		window.location.href="/login";
+    	});
+    	$("#sign").click(function(e){
+    		window.location.href="/signup";
+    	});
+    	
+    </script>
   </body>
 </html>

@@ -29,7 +29,7 @@ var checkLog=function(req,res,next){
 	}
 }
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'LogicSquare Technologies' });
+  res.render('index', { title: 'Host : Rahul Dutta' });
 });
 
 router.get('/signup',signup.get);
