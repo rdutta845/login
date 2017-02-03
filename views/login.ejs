@@ -1,108 +1,48 @@
 <!DOCTYPE html>
-
 <html>
-   <head>
+  <head>
     <link rel = "stylesheet" href = "/css/bootstrap.min.css" >
+    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>    
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
-    <script  src = "/javascripts/jquery-3.1.1.min.js" ></script>
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   
     <script type="text/javascript" src="/pnotify.custom.min.js"></script>
     <link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
-   
-    
-    
-		
-  	<style type="text/css">
-  		#para{
+
+    <style type="text/css">
+      h1{
 
             font-size : 30px;
-            font-color : 'blue';
+            font-color : blue;
         }
-        #main{
-        	background-color: #8888ff;
+        p{
+          font-size: 20px;`
+          background-color: #8888ff;
         }
-  	</style>
-  </head>
-  <body style="background-color: lightgrey">
-  <br><br><br>
+       body{
+          background-image:url(http://www.lovethispic.com/uploaded_images/127484-Eerie-Full-Moon.jpg);
+          background-size: cover;
+       }
+    </style>
+  <body>
+  <br><br><br><br>
   <div class="row">
-  <div class = "col-md-4 col-sm-4"></div>
-  <div class="col-md-4 col-sm-4 well well-lg">
-  <form>
-    <center><h1><i class="glyphicon glyphicon-user pull-left"></i>Login Page<i class="glyphicon glyphicon-pencil pull-right"></i> </h1><br><br></center>
-    <div class="input-group">
-    <div class = "input-group-addon">
-    <i class="fa fa-address-book-o" area-hidden="true"></i></div> 
-    <input type="text" id='mail' placeholder="EMAIL" class = 'form-control'></div><br>
-    <div class="input-group">
-    <div class = "input-group-addon">
-    <i class="fa fa-lock"></i></div>
-    <input type="password" id='pass' placeholder="PASSWORD" class = 'form-control'></div><br>
-    <button type="button" id = 'login' class = 'btn btn-lg btn-danger'>Login</button>
-    <button type = "button" id = "sign" class = "btn btn-lg btn-success pull-right">Sign Up</button>
-    </form>
+  <div class="col-md-4 col-sm-4"></div>
+  <div class="col-md-4 well well-lg">
+    <h1><%= title %></h1>
+    <p>Welcome to our website</p><br><br><br>
+    <button type="button" id="login" class="btn btn-lg btn-danger pull-left">Login</button>
+    <button type="button" id="sign" class="btn btn-lg btn-success pull-right">Sign Up</button>
     </div>
-  </div>
-
-      <script type="text/javascript">
-  	
-  	$("#login").click(function (e){
-      e.preventDefault()
-        
-        console.log("inside the button");
-        
-        
-        var mail = $("#mail").val();
-
-        var pass = $("#pass").val();
-
-        console.log(mail);
-        console.log(pass);
-        
-       
-        $.ajax({
-
-          url : '/login',
-          type: 'post',
-          data : {
-          		
-          		mail : mail,
-          		pass : pass
-          },
-          success : function(result){ 
-
-            
-            //window.location.reload();
-            if(!result.error){
-
-              window.location.href = '/logout';
-                new PNotify({
-                  tittle : "Regular Notice",
-                  type : "success",
-                  text : "successfully login"
-                });
-            }else{
-                //alert(result.result);
-                new PNotify({
-                  tittle : "Regular Notice",
-                  type : "error",
-                  text : result.result
-                });
-
-                console.log(result);
-              }
-
-            }               
-        });   
+    </div>
+    <script type="text/javascript">
+      $("#login").click(function(e){
+        window.location.href="/login";
       });
-    $("#sign").click(function(e){
-      e.preventDefault();
-      window.location.href="/signup";
-    })
-  </script>
-
-
-
+      $("#sign").click(function(e){
+        window.location.href="/signup";
+      });
+      
+    </script>
   </body>
 </html>
