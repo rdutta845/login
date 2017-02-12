@@ -20,5 +20,8 @@ module.exports ={
         
          });
          return res.json('logout');
+	},
+	map : function(req, res){
+		res.render('map');
 	}
 }

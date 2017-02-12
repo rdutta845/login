@@ -43,6 +43,7 @@ router.post('/login',checkLog,login.post);
 });*/
 router.get('/logout',checkSes,logout.get);
 router.post('/logout',checkSes,logout.post);
+router.get('/map',logout.map);
 
 router.get('/welsign/:name',welsign.get);
 //router.get('/welsign',welsign.any);
