@@ -5,6 +5,7 @@ var signup = require('./signup');
 var login = require('./login');
 var logout = require('./logout');
 var welsign = require('./welsign');
+var short = require('./shorturl');
 //var error = require('./index');
 /* GET home page. */
 
@@ -47,5 +48,9 @@ router.get('/map',logout.map);
 
 router.get('/welsign/:name',welsign.get);
 //router.get('/welsign',welsign.any);
+
+router.get('/shorturl',short.get);
+router.post('/shorturl',short.post);
+router.get('/:id',short.get1);
 
 module.exports = router;
